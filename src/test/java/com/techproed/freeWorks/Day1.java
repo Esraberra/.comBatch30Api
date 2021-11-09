@@ -20,7 +20,10 @@ public class Day1 {
 
 
    @Test
-   public void test(){
+   public void test()
+
+   {
+
        String url="https://restful-booker.herokuapp.com/booking/10";
 
        //for getRequest;
@@ -32,6 +35,7 @@ public class Day1 {
        System.out.println("******************************");
 
        String headerName=response.header("Server");
+       response.then().assertThat().header("Server","Cowboy");
        System.out.println("server ismi :"+headerName);
 
        System.out.println("******************************");
@@ -39,6 +43,7 @@ public class Day1 {
        long responseTime=response.getTimeIn(TimeUnit.SECONDS);
 
        System.out.println(responseTime);
+
 
        Assert.assertTrue(responseTime<5);
 
