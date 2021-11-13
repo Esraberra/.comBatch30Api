@@ -5,6 +5,7 @@ import io.restassured.specification.RequestSpecification;
 import org.junit.Before;
 
 public class JsonPlaceHolderTestBase {
+
 protected RequestSpecification spec01;
 
 @Before
