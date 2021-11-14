@@ -1,7 +1,7 @@
 package com.techproed.day06;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import com.techproed.testBase.DummyRestApi;
+import com.techproed.testBase.DummyTestBase;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 import static io.restassured.RestAssured.given;
 
-public class DummyRestApi1 extends DummyRestApi {
+public class DummyRestApi1 extends DummyTestBase {
     /*
     http://dummy.restapiexample.com/api/v1/employees url’inde bulunan
    1) Butun calisanlarin isimlerini consola yazdıralim
