@@ -5,6 +5,10 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static io.restassured.RestAssured.given;
 public class DummyRestApi2 extends DummyTestBase {
     /*
@@ -34,5 +38,17 @@ public class DummyRestApi2 extends DummyTestBase {
         Assert.assertEquals(24,jsonPath.getList("data.id").size());
         Assert.assertEquals("Airi Satou",jsonPath.getString("data[4].employee_name"));
         Assert.assertEquals(372000,jsonPath.getInt("data[5].employee_salary"));
+
+
+
+       Assert.assertTrue(jsonPath.getList("data.employee_name").contains("Rhona Davidson"));
+
+        List<Integer> list = new ArrayList<Integer>();
+        list.add(21);
+        list.add(23);
+        list.add(61);
+
+       Assert.assertTrue(jsonPath.getList("data.employee_age").containsAll(list));
+
     }
 }
