@@ -45,6 +45,18 @@ expectedData.put("completed","false");
                body("userId",equalTo(expectedData.get("userId")),
                        "title",equalTo(expectedData.get("title")),
                        "completed",equalTo(expectedData.get("completed")));
+//2. yöntem
+
+       Assert.assertEquals(expectedData.get("statusCode"),response.statusCode());
+       Assert.assertEquals(expectedData.get("via"),response.getHeader("via"));
+       Assert.assertEquals(expectedData.get("Server"),response.getHeader("Server"));
+       Assert.assertEquals(expectedData.get("userId"),jsonPath.getInt("userId"));
+       Assert.assertEquals(expectedData.get("title"),jsonPath.getString("title"));
+       Assert.assertEquals(expectedData.get("completed"),jsonPath.getBoolean("completed"));
+       //3. yöntem  deserialization
+       //   --object mapper
+       //   --pojo class ile birlite map
+
 
 
    }
