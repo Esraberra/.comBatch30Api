@@ -25,8 +25,7 @@ public class GetRequest_11_TestData extends JsonPlaceHolderTestBase {
 
      HashMap<String, Object> expectedData= (HashMap<String, Object>) expectedObje.setUpTestData();
 
-
-        Response response=given().accept("application/json").
+     Response response=given().accept("application/json").
                 spec(spec01).when().
                 get("/{first}/{second}");
 
@@ -48,10 +47,15 @@ public class GetRequest_11_TestData extends JsonPlaceHolderTestBase {
         Assert.assertEquals(expectedData.get("userId"),jsonPath.getInt("userId"));
         Assert.assertEquals(expectedData.get("title"),jsonPath.getString("title"));
         Assert.assertEquals(expectedData.get("completed"),jsonPath.getBoolean("completed"));
-        //3. yöntem  deserialization
-        //   --object mapper
-        //   --pojo class ile birlite map
 
+        //3. yöntem  deserialization yapiyoruz
+       HashMap<String,Object> actualData=response.as(HashMap.class);
+
+Assert.assertEquals(expectedData.get("userId"),actualData.get("userId"));
+
+Assert.assertEquals(expectedData.get("title"),actualData.get("title"));
+
+Assert.assertEquals(expectedData.get("completed"), actualData.get("completed"));
 
 
     }
