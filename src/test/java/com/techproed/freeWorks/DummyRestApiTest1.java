@@ -36,6 +36,7 @@ donen response'un asagidaki gibi oldugunu test edin.
   public void test(){
 
       spec03.pathParams("first","employee","second","3");
+
       Response response=given().accept("application/json").spec(spec03).
               when().get("/{first}/{second}");
 
