@@ -57,5 +57,28 @@ public JSONObject JsonTestData(){
       }
 
 
+      public JSONObject setUpPatchRequestData(){
+          //gönderecgimiz body kismini buraya yazacagiz
+
+          JSONObject requestData=new JSONObject();
+          requestData.put("title","API calismaliyim");
+
+          return requestData;
+
+      }
+
+      public JSONObject setupPatchExpectedData(){
+
+          JSONObject expectedData=new JSONObject();
+
+          expectedData.put("userId",10);
+          expectedData.put("title","API calismaliyim");
+          expectedData.put("completed",true);
+          expectedData.put("id",198);
+
+          return  expectedData;
+
+      }
+
     }
 
