@@ -5,7 +5,11 @@ import com.techproed.pojos.DummyPojo;
 import com.techproed.testBase.DummyTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Dictionary;
+import java.util.Enumeration;
 
 import static io.restassured.RestAssured.given;
 
@@ -45,5 +49,13 @@ DummyPojo actualData=response.as(DummyPojo.class);
 
 
         System.out.println(actualData);
+
+        Assert.assertEquals(200,response.getStatusCode());
+        Assert.assertEquals(expectedData.getStatus(),actualData.getStatus());
+        Assert.assertEquals(expectedData.getData().getemployee_age(),expectedData.getData().getemployee_age());
+
+
+
+
     }
 }
